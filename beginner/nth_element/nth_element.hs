@@ -1,7 +1,6 @@
 main = do
-    putStrLn ("last two elements: " ++ show (lastTwo ["a", "b", "c", "d"]))
+    putStrLn ("nth element: " ++ show (nthElement ["a", "b", "c", "d"] 2))
 
-lastTwo :: (Ord a) => [a] -> [a]
-lastTwo [] = error "empty list"
-lastTwo [x, y] = [x, y]
-lastTwo (x:xs) = lastTwo xs
+nthElement :: (Ord a) =>  [a] -> Int -> a
+nthElement [] _ = error "empty list"
+nthElement (x:xs) k = if k == 0 then x else nthElement xs (k-1)
